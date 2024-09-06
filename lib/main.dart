@@ -1,91 +1,155 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  static const String _title = 'Flutter Stateful Clicker Counter';
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
+void main() {
+  runApp(
+    MaterialApp(
+      home: HomePage(),
+    ),
+  );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-  // This class is the configuration for the state.
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+int itemPosition = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+class _HomePageState extends State {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('Flutter Demo Click Counter'),
+        title: const Text('Pedra, Papel e Tesoura'),
+        centerTitle: true,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: Text('Sua Jogada')),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    margin: EdgeInsets.all(10),
+                    width: 100,
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        'Pedra',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    margin: EdgeInsets.all(10),
+                    width: 100,
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        'Papel',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    margin: EdgeInsets.all(10),
+                    width: 100,
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        'Tesoura',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: const TextStyle(fontSize: 25),
+            Container(
+                margin: EdgeInsets.fromLTRB(0, 50, 0, 20),
+                child: Text('Jogada do Computador')),
+            Container(
+              decoration:
+                  BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+              margin: EdgeInsets.all(10),
+              width: 100,
+              height: 100,
+              child: Center(
+                child: Text(
+                  'Computador',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ),
+            Container(
+                margin: EdgeInsets.fromLTRB(0, 40, 0, 20),
+                child: Text('Resultado')),
+            Text('Trocar texto aqui'),
+            Expanded(
+                child: Column(
+              children: [
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 50, 0, 10),
+                    child: Text('Placar')),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(30)),
+                  width: 250,
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Text('Você'), Text('5')],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Text('PC'), Text('2')],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            )),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

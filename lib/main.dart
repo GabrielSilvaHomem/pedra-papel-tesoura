@@ -27,13 +27,13 @@ class _HomePageState extends State {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: Text('Sua Jogada')),
+            SizedBox(
+              height: 20,
+            ),
+            Container(child: Text('Sua Jogada')),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -96,54 +96,61 @@ class _HomePageState extends State {
                 ),
               ],
             ),
-            Container(
-                margin: EdgeInsets.fromLTRB(0, 50, 0, 20),
-                child: Text('Jogada do Computador')),
-            Container(
-              decoration:
-                  BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-              margin: EdgeInsets.all(10),
-              width: 100,
-              height: 100,
-              child: Center(
-                child: Text(
-                  'Computador',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+            SizedBox(
+              height: 20,
+            ),
+            Container(child: Text('Jogada do Computador')),
+            Expanded(
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+                margin: EdgeInsets.all(10),
+                width: 100,
+                height: 100,
+                child: Center(
+                  child: Text(
+                    'Computador',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
             ),
-            Container(
-                margin: EdgeInsets.fromLTRB(0, 40, 0, 20),
-                child: Text('Resultado')),
+            Container(child: Text('Resultado')),
             Text('Trocar texto aqui'),
+            SizedBox(
+              height: 50,
+            ),
             Expanded(
                 child: Column(
               children: [
-                Container(
-                    margin: EdgeInsets.fromLTRB(0, 50, 0, 10),
-                    child: Text('Placar')),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(30)),
-                  width: 250,
-                  height: 100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('Você'), Text('5')],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('PC'), Text('2')],
-                      ),
-                    ],
+                Container(child: Text('Placar')),
+                SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(30)),
+                    height: 100,
+                    width: 250,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('Você'), Text('5')],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('PC'), Text('2')],
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],

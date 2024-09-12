@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pedrapapeltesoura/components/score.dart';
 
 class Scoreboard extends StatefulWidget {
-  const Scoreboard({Key? key}) : super(key: key);
+  const Scoreboard({Key? key, this.placarPc = 0, this.placarUsuario = 0})
+      : super(key: key);
+
+  final int placarUsuario;
+  final int placarPc;
 
   @override
   State createState() => _ScoreboardState();
@@ -27,8 +31,8 @@ class _ScoreboardState extends State<Scoreboard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Score(titulo: 'Você', placar: 'placar'),
-                Score(titulo: 'PC', placar: 'placar')
+                Score(titulo: 'Você', placar: widget.placarUsuario),
+                Score(titulo: 'PC', placar: widget.placarPc)
               ],
             ),
           ),

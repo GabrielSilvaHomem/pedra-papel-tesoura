@@ -5,7 +5,7 @@ class Score extends StatefulWidget {
       : super(key: key);
 
   final String titulo;
-  final String placar;
+  final int placar;
 
   @override
   State createState() => _ScoreState();
@@ -16,7 +16,7 @@ class _ScoreState extends State<Score> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Text(widget.titulo), Text(widget.placar)],
+      children: [Text(widget.titulo), Text(widget.placar.toString())],
     );
   }
 }

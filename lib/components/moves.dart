@@ -18,8 +18,6 @@ class Moves extends StatefulWidget {
   State createState() => _MovesState();
 }
 
-bool estaVisivel = true;
-
 class _MovesState extends State<Moves> {
   @override
   Widget build(BuildContext context) {
@@ -30,13 +28,9 @@ class _MovesState extends State<Moves> {
       width: 100,
       height: 100,
       child: IconButton(
-        icon: AnimatedOpacity(
-          opacity: estaVisivel ? 1.0 : 0.0,
-          duration: Duration(milliseconds: 500),
-          child: Image.asset((widget.imagem.isEmpty)
-              ? 'images/ponto de interrogação.png'
-              : 'images/' + widget.imagem + '.png'),
-        ),
+        icon: Image.asset((widget.imagem.isEmpty)
+            ? 'images/ponto de interrogação.png'
+            : 'images/' + widget.imagem + '.png'),
         onPressed: () {
           if (widget.isPc) {
             return;
